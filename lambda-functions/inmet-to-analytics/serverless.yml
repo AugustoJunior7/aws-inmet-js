@@ -1,0 +1,16 @@
+service: aws-inmet-js
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  api-request:
+    handler: handler.getInmetData
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
